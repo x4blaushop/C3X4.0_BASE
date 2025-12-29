@@ -1,12 +1,53 @@
-
-/* EXTENSÃO DE CÉLULAS */
-
-.cell {
-  border-style: dashed;
+:root {
+  --neon-green: #62ff8a;
+  --bg-dark: #000;
 }
 
-.cell-status {
-  margin-top: 12px;
-  font-size: 0.85rem;
-  opacity: 0.75;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--neon-green);
+  font-family: 'Courier New', Courier, monospace;
+  overflow-x: hidden;
+}
+
+#matrix {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.planet-layer {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.info-block {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid var(--neon-green);
+  padding: 24px;
+  box-shadow: 0 0 18px rgba(98, 255, 138, 0.25);
+}
+
+h1 {
+  margin-bottom: 16px;
+  text-shadow: 0 0 10px var(--neon-green);
+}
+
+p {
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
