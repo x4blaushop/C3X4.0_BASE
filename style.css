@@ -1,1 +1,12 @@
 
+/* EXTENSÃO DE CÉLULAS */
+
+.cell {
+  border-style: dashed;
+}
+
+.cell-status {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
