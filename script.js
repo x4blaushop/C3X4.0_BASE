@@ -1,11 +1,10 @@
 /* DNA C3X4.0 - SISTEMA VIVO
-   ARQUITETURA DE HABITAÇÃO - JOSÉ PATRICK
+   ARQUITETURA DE HABITAÇÃO
 */
 
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
-// A casa se adapta ao habitante
 function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -14,20 +13,18 @@ resize();
 
 const letters = "01";
 const fontSize = 14;
-let columns;
+let columns = canvas.width / fontSize;
 let drops = [];
 
-// Inicialização do DNA visual
 function initMatrix() {
-  columns = Math.floor(canvas.width / fontSize);
+  columns = canvas.width / fontSize;
   drops = [];
-  for (let i = 0; i < columns; i++) {
-    drops[i] = 1;
+  for (let x = 0; x < columns; x++) {
+    drops[x] = 1;
   }
 }
 initMatrix();
 
-// Fluxo Matrix
 function drawMatrix() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -36,8 +33,8 @@ function drawMatrix() {
   ctx.font = fontSize + "px monospace";
 
   for (let i = 0; i < drops.length; i++) {
-    const char = letters[Math.floor(Math.random() * letters.length)];
-    ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+    const text = letters.charAt(Math.floor(Math.random() * letters.length));
+    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
     if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
       drops[i] = 0;
@@ -48,16 +45,14 @@ function drawMatrix() {
 
 setInterval(drawMatrix, 50);
 
-// Reação ao ambiente
 window.addEventListener("resize", () => {
   resize();
   initMatrix();
 });
 
-// Pulso interno da célula
 let systemAwake = true;
 document.addEventListener("keydown", (e) => {
   if (e.key === "i" && systemAwake) {
-    console.log("Célula ativa | DNA C3X4.0 respondendo.");
+    console.log("Célula BASE ativa.");
   }
 });
